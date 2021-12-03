@@ -28,6 +28,8 @@ public class FileNameGenerator {
 			return fileName.append(".xlsx").toString();
 		case CSV:
 			return fileName.append(".csv").toString();
+		case HTML:
+			return fileName.append(".html").toString();
 		default:
 			throw new DocumentGeneratorException("Error while generating the file name!");
 		}

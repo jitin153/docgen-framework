@@ -1,5 +1,5 @@
 package docgenframework.model;
 
 public enum DocumentType {
-	PDF, CSV, EXCEL;
+	PDF, CSV, EXCEL, HTML;
 }
