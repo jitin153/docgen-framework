@@ -1,4 +1,4 @@
-package docgenframework;
+package docgenframework.docgenerator;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -8,7 +8,6 @@ import java.nio.file.Paths;
 import org.junit.Before;
 import org.junit.Test;
 
-import docgenframework.docgenerator.DocumentGenerator;
 import docgenframework.factory.DocumentGeneratorFactory;
 import docgenframework.model.Address;
 import docgenframework.model.Constants;
@@ -18,7 +17,6 @@ import docgenframework.model.DocumentType;
 import docgenframework.model.Student;
 import docgenframework.model.TemplateEngine;
 import docgenframework.templateprocessor.TemplateProcessor;
-import docgenframework.templateprocessor.ThymeleafTemplateProcessor;
 import docgenframework.templateprocessor.VelocityTemplateProcessor;
 import docgenframework.util.DocGenUtil;
 

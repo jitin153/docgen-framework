@@ -1,15 +1,13 @@
-package docgenframework;
+package docgenframework.docgenerator;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.nio.file.Paths;
 
-import org.apache.commons.math3.analysis.function.Constant;
 import org.junit.Before;
 import org.junit.Test;
 
-import docgenframework.docgenerator.DocumentGenerator;
 import docgenframework.factory.DocumentGeneratorFactory;
 import docgenframework.model.Address;
 import docgenframework.model.Constants;
