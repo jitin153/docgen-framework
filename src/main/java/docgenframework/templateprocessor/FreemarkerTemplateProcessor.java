@@ -7,6 +7,7 @@ import java.io.Writer;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.jsoup.Jsoup;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -54,7 +55,7 @@ public class FreemarkerTemplateProcessor implements TemplateProcessor {
 		} catch (IOException e) {
 			LOG.error(e.getMessage());
 		}
-		return processedText;
+		return request.isFormattedHtml() ? Jsoup.parse(processedText).html() : processedText;
 	}
 
 	private void processTemplateFromString(Configuration configuration, String templateName, String templateText) {

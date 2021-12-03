@@ -10,6 +10,7 @@ import org.apache.velocity.runtime.RuntimeServices;
 import org.apache.velocity.runtime.RuntimeSingleton;
 import org.apache.velocity.runtime.parser.ParseException;
 import org.apache.velocity.runtime.parser.node.SimpleNode;
+import org.jsoup.Jsoup;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -30,7 +31,8 @@ public class VelocityTemplateProcessor implements TemplateProcessor {
 		} else {
 			throw new DocumentGeneratorException("Some required properties were null or empty!");
 		}
-		return this.processTemplate(template, request.getContextName(), request.getData());
+		String processedText = this.processTemplate(template, request.getContextName(), request.getData());
+		return request.isFormattedHtml() ? Jsoup.parse(processedText).html() : processedText;
 	}
 
 	private Template processTemplateFromFile(String templateDirectory, String templateName) {

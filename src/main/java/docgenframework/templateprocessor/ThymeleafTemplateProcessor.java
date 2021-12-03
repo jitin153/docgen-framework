@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 import org.apache.commons.lang.StringUtils;
+import org.jsoup.Jsoup;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.thymeleaf.context.Context;
@@ -39,7 +40,8 @@ public class ThymeleafTemplateProcessor implements TemplateProcessor {
 		Context context = new Context();
 		context.setVariable(request.getContextName(), request.getData());
 
-		return engine.process(templateText, context);
+		String processedText = engine.process(templateText, context);
+		return request.isFormattedHtml() ? Jsoup.parse(processedText).html() : processedText;
 	}
 
 	private String getTemplateAsString(DocumentRequest request) {

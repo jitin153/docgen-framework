@@ -18,10 +18,11 @@ public class DocumentRequest<T> {
 	private String watermark;
 	private TemplateProcessor templateProcessor;
 	private boolean appendTimestampInFilename;
+	private boolean formattedHtml;
 	
 	private DocumentRequest(TemplateEngine templateEngine, Path templateDirectory, String templateName,
 			String templateText, Path outputDirectory, String fileName, String contextName, T data,
-			DocumentType documentType, String processedHtml, String watermark, TemplateProcessor templateProcessor, boolean appendTimestampInFilename) {
+			DocumentType documentType, String processedHtml, String watermark, TemplateProcessor templateProcessor, boolean appendTimestampInFilename, boolean formattedHtml) {
 		this.templateEngine = templateEngine;
 		this.templateDirectory = templateDirectory;
 		this.templateName = templateName;
@@ -35,6 +36,7 @@ public class DocumentRequest<T> {
 		this.watermark = watermark;
 		this.templateProcessor = templateProcessor;
 		this.appendTimestampInFilename = appendTimestampInFilename;
+		this.formattedHtml = formattedHtml;
 	}
 
 	public TemplateEngine getTemplateEngine() {
@@ -89,6 +91,10 @@ public class DocumentRequest<T> {
 		return appendTimestampInFilename;
 	}
 
+	public boolean isFormattedHtml() {
+		return formattedHtml;
+	}
+	
 	public static class DocumentRequestBuilder<T> {
 		private TemplateEngine templateEngine;
 		private Path templateDirectory;
@@ -103,6 +109,7 @@ public class DocumentRequest<T> {
 		private String watermark;
 		private TemplateProcessor templateProcessor;
 		private boolean appendTimestampInFilename;
+		private boolean formattedHtml;
 		
 		public DocumentRequestBuilder<T> templateEngine(TemplateEngine templateEngine) {
 			this.templateEngine = templateEngine;
@@ -169,10 +176,15 @@ public class DocumentRequest<T> {
 			return this;
 		}
 		
+		public DocumentRequestBuilder<T> formattedHtml(boolean formattedHtml) {
+			this.formattedHtml = formattedHtml;
+			return this;
+		}
+		
 		public DocumentRequest<T> build() {
 			return new DocumentRequest<T>(templateEngine, templateDirectory, templateName, templateText,
 					outputDirectory, fileName, contextName, data, documentType, processedHtml, watermark,
-					templateProcessor, appendTimestampInFilename);
+					templateProcessor, appendTimestampInFilename, formattedHtml);
 		}
 	}
 }
