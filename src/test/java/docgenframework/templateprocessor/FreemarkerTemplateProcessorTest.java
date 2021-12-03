@@ -35,6 +35,7 @@ public class FreemarkerTemplateProcessorTest {
 				.templateName("studentReport.ftl")
 				.contextName("data")
 				.data(student)
+				.formattedHtml(true)
 				.build();
 		TemplateProcessor processor = TemplateProcessorFactory.getInstance(req.getTemplateEngine());
 		String text = processor.getProcessedText(req);
@@ -50,6 +51,7 @@ public class FreemarkerTemplateProcessorTest {
 						Constants.FREEMARKER_TEMPLATE_DIRECTORY + "StudentReportTemplateText.txt"))
 				.contextName("data")
 				.data(student)
+				.formattedHtml(false)
 				.build();
 		TemplateProcessor processor = TemplateProcessorFactory.getInstance(req.getTemplateEngine());
 		String text = processor.getProcessedText(req);

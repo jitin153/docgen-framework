@@ -35,6 +35,7 @@ public class VelocityTemplateProcessorTest {
 				.templateName("studentReport.vm")
 				.contextName("data")
 				.data(student)
+				.formattedHtml(true)
 				.build();
 		TemplateProcessor processor = TemplateProcessorFactory.getInstance(req.getTemplateEngine());
 		String text = processor.getProcessedText(req);
@@ -50,6 +51,7 @@ public class VelocityTemplateProcessorTest {
 						Constants.VELOCITY_TEMPLATE_DIRECTORY + "StudentReportTemplateText.txt"))
 				.contextName("data")
 				.data(student)
+				.formattedHtml(false)
 				.build();
 		TemplateProcessor processor = TemplateProcessorFactory.getInstance(req.getTemplateEngine());
 		String text = processor.getProcessedText(req);
