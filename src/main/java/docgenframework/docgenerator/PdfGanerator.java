@@ -29,9 +29,9 @@ import docgenframework.model.DocumentRequest;
 import docgenframework.util.DocumentGeneratorConstants;
 import docgenframework.util.DocumentGeneratorHelper;
 
-public class PDFGanerator implements DocumentGenerator {
+public class PdfGanerator implements DocumentGenerator {
 	
-	private static final Logger LOG =  LoggerFactory.getLogger(PDFGanerator.class);
+	private static final Logger LOG =  LoggerFactory.getLogger(PdfGanerator.class);
 	
 	/** Generate & return the document as byte array.
 	 * @param documentRequest

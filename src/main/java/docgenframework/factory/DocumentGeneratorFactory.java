@@ -1,10 +1,10 @@
 package docgenframework.factory;
 
-import docgenframework.docgenerator.CSVGenerator;
+import docgenframework.docgenerator.CsvGenerator;
 import docgenframework.docgenerator.DocumentGenerator;
 import docgenframework.docgenerator.ExcelGenerator;
 import docgenframework.docgenerator.HtmlGenerator;
-import docgenframework.docgenerator.PDFGanerator;
+import docgenframework.docgenerator.PdfGanerator;
 import docgenframework.exception.DocumentGeneratorException;
 import docgenframework.model.DocumentType;
 
@@ -15,11 +15,11 @@ public class DocumentGeneratorFactory {
 	public static DocumentGenerator getInstance(DocumentType documentType) {
 		switch (documentType) {
 		case PDF:
-			return new PDFGanerator();
+			return new PdfGanerator();
 		case EXCEL:
 			return new ExcelGenerator();
 		case CSV:
-			return new CSVGenerator();
+			return new CsvGenerator();
 		case HTML:
 			return new HtmlGenerator();
 		default:

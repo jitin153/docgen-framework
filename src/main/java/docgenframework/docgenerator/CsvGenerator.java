@@ -18,9 +18,9 @@ import docgenframework.model.DocumentRequest;
 import docgenframework.util.DocumentGeneratorConstants;
 import docgenframework.util.DocumentGeneratorHelper;
 
-public class CSVGenerator implements DocumentGenerator {
+public class CsvGenerator implements DocumentGenerator {
 	
-	private static final Logger LOG =  LoggerFactory.getLogger(CSVGenerator.class);
+	private static final Logger LOG =  LoggerFactory.getLogger(CsvGenerator.class);
 	
 	/** Generate & return the document as byte array.
 	 * @param documentRequest
